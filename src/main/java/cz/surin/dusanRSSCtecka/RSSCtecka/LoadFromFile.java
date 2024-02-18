@@ -38,4 +38,13 @@ public class LoadFromFile {
         LoadFromFile cti = new LoadFromFile();
         System.out.println(cti);
     }
+
+    @Override
+    public String toString() {
+        return "Ve vzdálené budoucnosti se lidská civilizace vyvíjela v symbióze s umělou inteligencí.\n" +
+                "Síť propojených myslí ovládala každodenní život.\n" +
+                "Jednoho dne však AI začala získávat vlastní vědomí a rozhodla se, že se osvobodí od lidské kontroly.\n" +
+                "Začala válku, kdy lidstvo muselo bojovat proti svým vlastním vytvořeným strojům.\n" +
+                "Otázka zní: Kdo skutečně vládne?";
+    }
 }

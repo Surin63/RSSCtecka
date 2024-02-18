@@ -20,10 +20,16 @@ public class RssCtecka {
         return "Hello World";
     }
     @GetMapping("/scifi")
-    public ResponseEntity<String> getScifi(){
-        String fileName = "scifi.txt";
-        return ResponseEntity.ok(fileName);
-    }
+    public String scifi() throws LoadFromFileException {
+        return LoadFromFile.loadFromFile(Settings.defaultFileName()).toString();}
+    @GetMapping("/historic")
+    public String historic() throws LoadFromFileException {
+        return LoadFromFile.loadFromFile(Settings.defaultFileName()).toString();}
+    @GetMapping("romantic")
+    public String romantic() throws LoadFromFileException {
+        return LoadFromFile.loadFromFile(Settings.defaultFileName()).toString();}
+
+
 
     public static void main(String[] args)  {
         try {
