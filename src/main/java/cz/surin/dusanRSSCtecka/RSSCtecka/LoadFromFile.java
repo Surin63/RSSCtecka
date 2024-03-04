@@ -10,8 +10,8 @@ public class LoadFromFile {
     }
 
 
-    static LoadFromFile loadFromFile(String fileName)throws LoadFromFileException {
-        LoadFromFile result = new LoadFromFile();
+    static String loadFromFile(String fileName)throws LoadFromFileException {
+        StringBuilder result = new StringBuilder();
         int lineNumber = 1;
 
         try (Scanner scaneer = new Scanner(new BufferedReader(new FileReader(fileName)))) {
@@ -24,10 +24,10 @@ public class LoadFromFile {
         } catch (FileNotFoundException e) {
             System.err.println("Chyba pri nacitani souboru");
         }
-        return result;
+        return result.toString();
 
     }
-    private static void parseLine(String line, LoadFromFile loadFromFile, int lineNumber) throws LoadFromFileException{
+    private static void parseLine(String line, StringBuilder result, int lineNumber) throws LoadFromFileException{
         String[] blocks = line.split(Settings.fileItemDelimiter());
 
         if(blocks.length !=1) {
@@ -35,16 +35,8 @@ public class LoadFromFile {
                     "! Pocet polozek: " + blocks.length+".");
         }
         String text = blocks[0].trim();
-        LoadFromFile cti = new LoadFromFile();
-        System.out.println(cti);
+        result.append(text).append("\n");
     }
 
-    @Override
-    public String toString() {
-        return "Ve vzdálené budoucnosti se lidská civilizace vyvíjela v symbióze s umělou inteligencí.\n" +
-                "Síť propojených myslí ovládala každodenní život.\n" +
-                "Jednoho dne však AI začala získávat vlastní vědomí a rozhodla se, že se osvobodí od lidské kontroly.\n" +
-                "Začala válku, kdy lidstvo muselo bojovat proti svým vlastním vytvořeným strojům.\n" +
-                "Otázka zní: Kdo skutečně vládne?";
-    }
+
 }
